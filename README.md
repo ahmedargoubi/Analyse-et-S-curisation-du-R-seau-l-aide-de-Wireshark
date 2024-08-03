@@ -14,11 +14,10 @@ Wireshark est un outil de capture et d'analyse de paquets réseau largement util
 
 #### Préparation du Réseau de Test
 
-Pour assurer une analyse efficace et sécurisée, un environnement de test isolé a été utilisé en employant VMware Workstation. Le réseau de test a été configuré en mode "Host-Only" pour créer un réseau privé virtuel. Cette configuration permet aux machines virtuelles de communiquer uniquement entre elles et avec l'hôte, tout en restant isolées du réseau externe. Les étapes de préparation sont les suivantes :
+Pour assurer une analyse efficace et sécurisée, un environnement de test isolé a été utilisé en employant VMware Workstation. Le réseau de test a été configuré en mode "Host-Only" pour créer un réseau privé virtuel. Cette configuration permet aux machines virtuelles de communiquer uniquement entre elles et avec l'hôte, tout en restant isolées du réseau externe. Les machines virtuelles utilisées dans ce projet sont :
 
-1. **Configuration de VMware Workstation :**
-   - **Création d'un réseau virtuel "Host-Only" :** VMware a été configuré pour utiliser un réseau "Host-Only", permettant aux machines virtuelles de communiquer entre elles et avec l'hôte sans accès à Internet ou à d'autres réseaux.
-   - **Ajout des machines virtuelles :** Des machines virtuelles ont été créées et configurées sur ce réseau "Host-Only". Chaque machine virtuelle a été configurée avec une adresse IP statique ou une adresse IP attribuée par le serveur DHCP du réseau "Host-Only".
-
-2. **Vérification de la Connectivité :**
+- **Kali Linux** : Fournit les outils nécessaires pour les tests de sécurité et l'analyse réseau.
+- **Metasploitable 1** : Une machine virtuelle vulnérable utilisée pour tester les techniques d'exploitation et les outils de sécurité.
+- **Windows XP** : Un système d'exploitation plus ancien souvent ciblé dans des scénarios de tests de sécurité pour évaluer les vulnérabilités et les exploits.
+- **Ubuntu 22.04** : Un système d'exploitation moderne utilisé pour simuler un environnement de serveur ou de client dans les tests de réseau.
    - **Test de la communication entre les machines :** Des outils comme `ping` ou `traceroute` ont été utilisés pour vérifier que les machines virtuelles pouvaient communiquer entre elles et avec l'hôte.

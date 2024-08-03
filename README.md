@@ -32,4 +32,8 @@ Les étapes de préparation incluent :
 2. **Vérification de la Connectivité :**
    - **Test de la communication entre les machines :** l'outil `ping` a été utiliséss pour vérifier que les machines virtuelles pouvaient communiquer entre elles .
     ![ping](captures/ping.png)
+
+### Démarrage de la Capture avec Wireshark
+
+Après avoir préparé l'environnement de test, il est crucial de configurer correctement Wireshark pour capturer les données pertinentes.
   

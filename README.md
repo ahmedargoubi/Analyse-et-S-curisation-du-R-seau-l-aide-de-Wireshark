@@ -52,6 +52,29 @@ Pour se concentrer sur le trafic pertinent et réduire la surcharge d'informatio
    Ce filtre exclut les paquets de diffusion et les protocoles de gestion réseau, permettant ainsi de se focaliser sur le trafic plus significatif pour l'analyse. 
 
 
+Pour analyser spécifiquement le trafic ICMP, tel que les requêtes et les réponses de ping, les étapes suivantes ont été suivies :
+
+1. **Effectuer le Ping :**
+   - Depuis la machine Kali, un terminal a été ouvert.
+   - La commande de ping suivante a été exécutée pour envoyer des paquets ICMP Echo Request à la machine Metasploitable :
+
+     ```bash
+     ping 192.168.10.123
+     ```
+
+2. **Capturer et Analyser le Trafic :**
+   - Wireshark a été lancé et l'interface réseau appropriée pour la capture a été sélectionnée.
+   - Le filtre `icmp` a été entré dans la barre de filtre de Wireshark pour afficher uniquement les paquets ICMP :
+
+     ```plaintext
+     icmp
+     ```
+
+  ![icmp](captures/icmp.png)
+     
+
+   - La capture a été démarrée. Les paquets ICMP Echo Request envoyés par Kali et les réponses ICMP Echo Reply de Metasploitable ont été visibles.
+
 **Note :** Après l'application de ce filtre, l'interface de capture peut apparaître vide. Cela est dû à l'exclusion de nombreux types de paquets. Cela peut indiquer que les seuls paquets capturés sont ceux qui ne sont pas filtrés, facilitant ainsi l'analyse des paquets réellement intéressants et réduisant le bruit de fond dans les données capturées.
 
 

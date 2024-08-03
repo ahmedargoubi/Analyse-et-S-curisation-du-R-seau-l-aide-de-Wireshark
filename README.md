@@ -93,7 +93,7 @@ Ce filtre a permis de se concentrer uniquement sur le trafic entre ces deux adre
 
 Pour vérifier la connectivité réseau entre les machines, un test de ping a été effectué depuis la machine Ubuntu, avec l'adresse IP 192.168.10.128, vers la machine Windows, avec l'adresse IP 192.168.10.122. 
 
- ![ipadd](captures/ubn.png)
+ ![ipadd](captures/ubnt.png)
  ![ipadd](captures/vide.png)
 
  

@@ -51,6 +51,8 @@ Pour se concentrer sur le trafic pertinent et réduire la surcharge d'informatio
    ![nobrodcast](captures/nobrodcast.png)
    Ce filtre exclut les paquets de diffusion et les protocoles de gestion réseau, permettant ainsi de se focaliser sur le trafic plus significatif pour l'analyse. 
 
+   ### Filtrage par port :
+
 
 Pour analyser spécifiquement le trafic ICMP, tel que les requêtes et les réponses de ping, les étapes suivantes ont été suivies :
 
@@ -77,6 +79,25 @@ Pour analyser spécifiquement le trafic ICMP, tel que les requêtes et les répo
 
 **Note :** Après l'application de ce filtre, l'interface de capture peut apparaître vide. Cela est dû à l'exclusion de nombreux types de paquets. Cela peut indiquer que les seuls paquets capturés sont ceux qui ne sont pas filtrés, facilitant ainsi l'analyse des paquets réellement intéressants et réduisant le bruit de fond dans les données capturées.
 
+### Filtrage par Adresses IP : 
+
+Pour se concentrer sur des adresses IP spécifiques dans le réseau, un filtre plus ciblé a été utilisé. Ce filtre permet de restreindre la capture aux paquets envoyés d'une adresse IP source à une adresse IP de destination particulière. Par exemple, pour observer le trafic entre l'adresse IP 192.168.10.219 et l'adresse IP 192.168.10.123, le filtre suivant a été appliqué :
+
+ ```bash
+     ip.src == 192.168.10.219 && ip.dst == 192.168.10.123
+ ```
+
+  ![ipadd](captures/ipadd.png)
+
+Ce filtre a permis de se concentrer uniquement sur le trafic entre ces deux adresses IP, facilitant ainsi l'analyse des communications spécifiques entre ces machines et éliminant les autres paquets qui ne sont pas pertinents pour cette analyse.
+
+Pour vérifier la connectivité réseau entre les machines, un test de ping a été effectué depuis la machine Ubuntu, avec l'adresse IP 192.168.10.128, vers la machine Windows, avec l'adresse IP 192.168.10.122. 
+
+ ![ipadd](captures/ubn.png)
+ ![ipadd](captures/vide.png)
+
+ 
+**Observation :** Wireshark n'a pas capturé les paquets de ce ping. Cela est dû à l'utilisation du filtre qui spécifiait uniquement les paquets entre deux adresses IP spécifiques. En effet, le filtre appliqué limitait la capture aux paquets entre les adresses IP 192.168.10.219 et 192.168.10.123. Par conséquent, les pings effectués entre les adresses IP 192.168.10.128 et 192.168.10.122 ont été exclus de la capture. 
 
 
 

@@ -24,7 +24,9 @@ Pour assurer une analyse efficace et sécurisée, un environnement de test isol�
 Les étapes de préparation incluent :
 
 1. **Configuration de VMware Workstation :**
-   - **Création d'un réseau virtuel "Host-Only" :** VMware a été configuré pour utiliser un réseau "Host-Only", permettant aux machines virtuelles de communiquer entre elles et avec l'hôte sans accès à Internet ou à d'autres réseaux.
+   - **Création d'un réseau virtuel "Host-Only" :** VMware a été configuré pour utiliser un réseau "Host-Only", permettant aux machines virtuelles de communiquer entre elles
+   ![Diagramme du réseau](les_captures/hostonlyconfiguration.png)
+
    - **Ajout des machines virtuelles :** Les machines virtuelles Kali Linux, Metasploitable 1, Windows XP et Ubuntu 22.04 ont été créées et configurées sur ce réseau "Host-Only". Chaque machine virtuelle a été configurée avec une adresse IP statique ou une adresse IP attribuée par le serveur DHCP du réseau "Host-Only".
 
 2. **Vérification de la Connectivité :**

@@ -37,6 +37,7 @@ Les étapes de préparation incluent :
 
 Après avoir préparé l'environnement de test, il est crucial de configurer correctement Wireshark pour capturer les données pertinentes.
 Lors du démarrage de wireshark, l'interface réseau correspondant au réseau "Host-Only" a été sélectionnée pour garantir que le trafic capturé provient du réseau de test isolé.
+
  ![interface](captures/interface.png)
 
 ### Configurations des Filtres
@@ -45,8 +46,11 @@ Lors de la première exécution de Wireshark, une grande quantité de trafic est
  ![brodcast](captures/brodcast.png)
 Pour se concentrer sur le trafic pertinent et réduire la surcharge d'informations, un filtre a été appliqué :
   !(eth.dst == ff:ff:ff:ff:ff:ff || arp || cdp || lldp || stp )
+
+  
    ![nobrodcast](captures/nobrodcast.png)
    Ce filtre exclut les paquets de diffusion et les protocoles de gestion réseau, permettant ainsi de se focaliser sur le trafic plus significatif pour l'analyse. 
+
 
 **Note :** Après l'application de ce filtre, l'interface de capture peut apparaître vide. Cela est dû à l'exclusion de nombreux types de paquets. Cela peut indiquer que les seuls paquets capturés sont ceux qui ne sont pas filtrés, facilitant ainsi l'analyse des paquets réellement intéressants et réduisant le bruit de fond dans les données capturées.
 

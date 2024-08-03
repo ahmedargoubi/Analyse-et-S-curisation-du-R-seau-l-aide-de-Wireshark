@@ -1,4 +1,4 @@
-# Analyse et Scurisation du Réseau a l'aide de Wireshark
+# Analyse et Sécurisation du Réseau a l'aide de Wireshark
 
 ## Introduction
 

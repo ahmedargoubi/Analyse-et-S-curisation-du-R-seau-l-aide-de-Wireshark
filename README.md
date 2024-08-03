@@ -36,4 +36,7 @@ Les étapes de préparation incluent :
 ### Démarrage de la Capture avec Wireshark
 
 Après avoir préparé l'environnement de test, il est crucial de configurer correctement Wireshark pour capturer les données pertinentes.
+Lors du démarrage de wireshark, l'interface réseau correspondant au réseau "Host-Only" a été sélectionnée pour garantir que le trafic capturé provient du réseau de test isolé.
+ ![interface](captures/interface.png)
+
   

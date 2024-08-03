@@ -27,7 +27,7 @@ Les étapes de préparation incluent :
    - **Création d'un réseau virtuel "Host-Only" :** VMware a été configuré pour utiliser un réseau "Host-Only", permettant aux machines virtuelles de communiquer entre elles
    ![Diagramme du réseau](captures/hostonlyconfiguration.png)
 
-   - **Ajout des machines virtuelles :** Les machines virtuelles Kali Linux, Metasploitable 1, Windows XP et Ubuntu 22.04 ont été créées et configurées sur ce réseau "Host-Only". Chaque machine virtuelle a été configurée avec une adresse IP statique ou une adresse IP attribuée par le serveur DHCP du réseau "Host-Only".
+   - **Ajout des machines virtuelles :** Les machines virtuelles Kali Linux, Metasploitable 2, Windows XP et Ubuntu 22.04 ont été créées et configurées sur ce réseau "Host-Only". Chaque machine virtuelle a été configurée avec une adresse IP  attribuée par le serveur DHCP du réseau "Host-Only".
 
 2. **Vérification de la Connectivité :**
    - **Test de la communication entre les machines :** Des outils comme `ping` ou `traceroute` ont été utilisés pour vérifier que les machines virtuelles pouvaient communiquer entre elles et avec l'hôte.

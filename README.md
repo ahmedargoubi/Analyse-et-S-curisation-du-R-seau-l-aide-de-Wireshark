@@ -173,14 +173,15 @@ Pour faciliter l'analyse dans Wireshark, les noms des machines ont été modifi�
    - Modifier le nom pour refléter l'adresse IP de l'attaquant. Dans ce cas, le nom est changé en **"Attaquant (192.168.10.219)"**.
 
 
-      ![ipadd](captures/name.png)
-
 2. **Modification du Nom de la Cible**
    - Clic droit sur le premier paquet capturé dans Wireshark.
    - Sélectionner **"Edit Resolved Name"**.
    - Modifier le nom pour refléter l'adresse IP de la cible. Dans ce cas, le nom est changé en **"Cible (192.168.10.123)"**.
 
 
+      ![ipadd](captures/name.png)
+
+     
     ![ipadd](captures/capture.png)
 
    

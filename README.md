@@ -145,6 +145,7 @@ Pour capturer et analyser les résultats d'un scan de ports, la commande suivant
 
 
 -sS : Effectue un syn scan .
+
 -T4 : Augmente la vitesse du scan pour obtenir les résultats plus rapidement.
 
 Après avoir effectué le scan avec nmap, un filtre a été appliqué dans Wireshark pour isoler les paquets SYN :

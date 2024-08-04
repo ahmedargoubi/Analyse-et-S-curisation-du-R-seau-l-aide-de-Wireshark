@@ -132,16 +132,57 @@ En revanche, le **scan de handshake complet** (ou **scan TCP connect()**) établ
 
    - **Détection :** Le scan de handshake complet établir une connexion complète est plus facile à détecter, ce qui peut rendre le scan plus visible aux systèmes de sécurité.
 
-     ## Capture de Port Scan
+     ## Capture SYN Scan
 
-Pour capturer et analyser les résultats d'un scan de ports, la commande suivante a été utilisée sur Kali Linux pour scanner la machine Metasploitable :
+Pour capturer et analyser les résultats d'un scan de ports, la commande suivante a été utilisée sur Kali Linux (machine de l'attaquant) pour scanner la machine Metasploitable (machine de vectime) :
 
 
  ```bash
-     nmap -sT -T4 192.168.10.123
+     nmap -sS -T4 192.168.10.123
  ```
 
   ![ipadd](captures/scan.png)
 
+
+-sS : Effectue un syn scan .
+-T4 : Augmente la vitesse du scan pour obtenir les résultats plus rapidement.
+
+Après avoir effectué le scan avec nmap, un filtre a été appliqué dans Wireshark pour isoler les paquets SYN :
+
+ ```bash
+     tcp.flags.syn==1
+ ```
+
+  ![ipadd](captures/flags.png)
+
+
+  Lors de l'analyse du trafic réseau capturé pendant un scan de ports, il est important de bien identifier les rôles des machines impliquées : la machine attaquante (qui effectue le scan) et la machine cible (qui reçoit le scan). Voici comment ces rôles sont définis et comment les noms des machines sont modifiés dans Wireshark :
+
+### Définition des Adresses IP
+
+- **Adresse IP de la Machine Attaquante :** La machine qui effectue le scan SYN. Dans ce cas, l'adresse IP de la machine attaquante est `192.168.10.219`.
+- **Adresse IP de la Machine Cible :** La machine qui est scannée. Dans ce cas, l'adresse IP de la machine cible est `192.168.10.123`.
+
+### Modification des Noms dans Wireshark
+
+Pour faciliter l'analyse dans Wireshark, les noms des machines ont été modifiés comme suit :
+
+1. **Modification du Nom de l'Attaquant**
+   - Clic droit sur le premier paquet capturé dans Wireshark.
+   - Sélectionner **"Edit Resolved Name"**.
+   - Modifier le nom pour refléter l'adresse IP de l'attaquant. Dans ce cas, le nom est changé en **"Attaquant (192.168.10.219)"**.
+
+
+      ![ipadd](captures/name.png)
+
+2. **Modification du Nom de la Cible**
+   - Clic droit sur le premier paquet capturé dans Wireshark.
+   - Sélectionner **"Edit Resolved Name"**.
+   - Modifier le nom pour refléter l'adresse IP de la cible. Dans ce cas, le nom est changé en **"Cible (192.168.10.123)"**.
+
+
+    ![ipadd](captures/capture.png)
+
+   
 
 

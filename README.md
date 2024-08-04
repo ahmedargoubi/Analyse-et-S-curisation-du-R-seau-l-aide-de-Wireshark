@@ -116,7 +116,7 @@ Le **SYN Scan** est une technique de scan de ports qui permet d'identifier les p
  ![ipadd](captures/synscan.png)
 
  
-- Le SYN Scan est souvent moins détectable car il ne complète pas la connexion TCP. Cela le rend moins visible pour les systèmes de détection d'intrusion.
+Le SYN Scan est souvent moins détectable car il ne complète pas la connexion TCP. Cela le rend moins visible pour les systèmes de détection d'intrusion.
 -Il est généralement plus rapide que les scans complets puisqu'il n'implique pas la finalisation du processus de connexion.
 
 ### Scan de Handshake Complet
@@ -131,5 +131,17 @@ En revanche, le **scan de handshake complet** (ou **scan TCP connect()**) établ
 
 
    - **Détection :** Le scan de handshake complet établir une connexion complète est plus facile à détecter, ce qui peut rendre le scan plus visible aux systèmes de sécurité.
+
+     ## Capture de Port Scan
+
+Pour capturer et analyser les résultats d'un scan de ports, la commande suivante a été utilisée sur Kali Linux pour scanner la machine Metasploitable :
+
+
+ ```bash
+     nmap -sT -T4 192.168.10.123
+ ```
+
+  ![ipadd](captures/scan.png)
+
 
 

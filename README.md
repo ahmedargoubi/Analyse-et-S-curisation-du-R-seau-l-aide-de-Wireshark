@@ -99,5 +99,35 @@ Pour vérifier la connectivité réseau entre les machines, un test de ping a é
  
 **Observation :** Wireshark n'a pas capturé les paquets de ce ping. Cela est dû à l'utilisation du filtre qui spécifiait uniquement les paquets entre deux adresses IP spécifiques. En effet, le filtre appliqué limitait la capture aux paquets entre les adresses IP 192.168.10.219 et 192.168.10.123. Par conséquent, les pings effectués entre les adresses IP 192.168.10.128 et 192.168.10.122 ont été exclus de la capture. 
 
+### SYN Scan et Scan de Handshake Complet
+
+Avant d'appliquer le filtre `tcp.flags.syn==1`, il est important de comprendre les différentes méthodes de scan utilisées pour détecter les ports ouverts sur un réseau. Deux méthodes couramment employées sont le **SYN Scan** et le **scan de handshake complet**.
+
+#### SYN Scan
+
+Le **SYN Scan** est une technique de scan de ports qui permet d'identifier les ports ouverts sur une machine cible sans établir une connexion TCP complète. Voici un aperçu de cette méthode :
+
+ **Fonctionnement :**
+   - Lors d'un SYN Scan, l'outil de scan envoie des paquets TCP avec le drapeau SYN activé à différents ports sur la machine cible.
+   - Si un port est ouvert, le serveur répondra avec un paquet SYN-ACK, indiquant qu'il est prêt à établir une connexion.
+   - Si le port est fermé, le serveur répondra avec un paquet RST, signalant que la connexion est refusée.
+   - Les ports filtrés peuvent ne pas répondre ou répondre avec un paquet ICMP d'erreur.
+
+ ![ipadd](captures/synscan.png)
+
+ 
+- Le SYN Scan est souvent moins détectable car il ne complète pas la connexion TCP. Cela le rend moins visible pour les systèmes de détection d'intrusion.
+-Il est généralement plus rapide que les scans complets puisqu'il n'implique pas la finalisation du processus de connexion.
+
+#### Scan de Handshake Complet
+
+En revanche, le **scan de handshake complet** (ou **scan TCP connect()**) établit une connexion TCP complète avec la machine cible. Voici comment il fonctionne :
+
+ **Fonctionnement :**
+   - Le scan débute par l'envoi d'un paquet SYN. Si le port est ouvert, le serveur répondra avec un SYN-ACK, et l'outil de scan enverra un paquet ACK pour compléter le handshake TCP. La connexion est ensuite fermée avec un paquet FIN.
+   - Si le port est fermé, le serveur enverra un paquet RST en réponse.
+    ![ipadd](captures/handshake.png)
+
+   - **Détection :** Le scan de handshake complet établir une connexion complète est plus facile à détecter, ce qui peut rendre le scan plus visible aux systèmes de sécurité.
 
 

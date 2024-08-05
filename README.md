@@ -238,3 +238,26 @@ Pour assurer et visualiser les résultats, les étapes suivantes ont été suivi
 La fenêtre des conversations TCP affiche toutes les connexions TCP identifiées, y compris les ports ouverts sur la machine cible. Les ports ouverts détectés sont listés, confirmant les résultats du filtre précédent.
 
 
+## Analyse du Port Spécifique :
+
+Lorsqu'un hacker spécifie un port particulier à attaquer, tel que le port 21, il est crucial d'analyser le trafic associé pour comprendre l'état du port et la réponse du système cible. Dans ce cas, un scan a été effectué sur le port 21 de la machine cible à l'aide de Nmap depuis Kali Linux. 
+Le port a été identifié comme ouvert.
+
+![ipadd](captures/ftp.png)
+
+Pour analyser ce scan dans Wireshark, le filtre suivant a été utilisé pour capturer les paquets liés à ce port :
+
+ ```bash
+     tcp.port==21
+
+ ```
+
+[ipadd](captures/capftp.png)
+
+Wireshark affiche les paquets suivants :
+
+ - Paquet SYN : Envoyé de l'attaquant vers la machine cible (victime), indiquant une tentative de connexion sur le port 21.
+ - Paquet SYN-ACK : Réponse de la machine cible à l'attaquant, confirmant que le port 21 est ouvert et prêt à établir une connexion.
+ - Paquet RST : Envoyé par l'attaquant à la machine cible pour réinitialiser la connexion, ce qui est une indication que l'attaquant a terminé l'analyse et ne souhaite pas poursuivre la connexion.
+
+Ces trois paquets montrent que le port 21 est ouvert sur la machine cible

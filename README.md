@@ -253,7 +253,7 @@ Pour analyser ce scan dans Wireshark, le filtre suivant a été utilisé pour ca
 
  ```
 
-[ipadd](captures/cap_ftp.png)
+  [ipadd](captures/cap_ftp.png)
 
 Wireshark affiche les paquets suivants :
 

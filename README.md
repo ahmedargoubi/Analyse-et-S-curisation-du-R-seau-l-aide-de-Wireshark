@@ -241,6 +241,7 @@ La fenêtre des conversations TCP affiche toutes les connexions TCP identifiées
 ## Analyse du Port Spécifique :
 
 Lorsqu'un hacker spécifie un port particulier à attaquer, tel que le port 21, il est crucial d'analyser le trafic associé pour comprendre l'état du port et la réponse du système cible. Dans ce cas, un scan a été effectué sur le port 21 de la machine cible à l'aide de Nmap depuis Kali Linux. 
+
 Le port a été identifié comme ouvert.
 
 ![ipadd](captures/cap_ftp.png)

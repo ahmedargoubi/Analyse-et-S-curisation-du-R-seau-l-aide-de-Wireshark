@@ -171,13 +171,13 @@ Pour faciliter l'analyse dans Wireshark, les noms des machines ont été modifi�
 1. **Modification du Nom de l'Attaquant**
    - Clic droit sur le premier paquet capturé dans Wireshark.
    - Sélectionner **"Edit Resolved Name"**.
-   - Modifier le nom pour refléter l'adresse IP de l'attaquant. Dans ce cas, le nom est changé en **"Attaquant (192.168.10.219)"**.
+   - Modifier le nom pour refléter l'adresse IP de l'attaquant. Dans ce cas, le nom est changé en **"attacker (192.168.10.219)"**.
 
 
 2. **Modification du Nom de la Cible**
    - Clic droit sur le premier paquet capturé dans Wireshark.
    - Sélectionner **"Edit Resolved Name"**.
-   - Modifier le nom pour refléter l'adresse IP de la cible. Dans ce cas, le nom est changé en **"Cible (192.168.10.123)"**.
+   - Modifier le nom pour refléter l'adresse IP de la cible. Dans ce cas, le nom est changé en **"vectim (192.168.10.123)"**.
 
 
       ![ipadd](captures/name.png)
@@ -185,6 +185,43 @@ Pour faciliter l'analyse dans Wireshark, les noms des machines ont été modifi�
      
     ![ipadd](captures/capture.png)
 
+    ## Analyse des Ports Ouverts dans wireshark
+
+   Pour  analyser spécifiquement les réponses SYN-ACK de la machine cible, un filtre a été appliqué pour isoler ces paquets. Voici les étapes détaillées :
    
+### Filtrage des Réponses SYN-ACK
+
+Pour capturer uniquement les réponses SYN-ACK de la machine cible (adresse IP 192.168.10.123), le filtre suivant a été utilisé dans Wireshark :
+
+ ```bash
+     tcp.flags.syn==1 and ip.src==192.168.10.123
+
+ ```
+
+
+![ipadd](captures/open.png)
+
+
+
+Ce filtre permet d'afficher uniquement les paquets SYN-ACK envoyés par la machine cible, indiquant les ports ouverts en réponse aux requêtes SYN de la machine de l'attaquant.
+
+
+### Analyse des Ports Ouverts
+
+Après avoir appliqué le filtre et capturé les paquets SYN-ACK, il est possible de vérifier les ports ouverts de la machine cible. Dans cet exemple, 22 paquets sont affichés, indiquant que 22 ports sont ouverts.
+
+Pour assurer et visualiser les résultats, les étapes suivantes ont été suivies :
+
+    Cliquer sur "Statistiques" dans la barre de menu de Wireshark.
+    Sélectionner "Conversations..." pour ouvrir la fenêtre des conversations réseau.
+    Dans la fenêtre des conversations, cliquer sur l'onglet "TCP".
+
+
+![ipadd](captures/conversations.png)
+
+
+### Résultat des Ports Ouverts
+
+La fenêtre des conversations TCP affiche toutes les connexions TCP identifiées, y compris les ports ouverts sur la machine cible. Les ports ouverts détectés sont listés, confirmant les résultats du filtre précédent.
 
 

@@ -167,11 +167,11 @@ Après avoir effectué le scan avec nmap, un filtre a été appliqué dans Wires
   ![ipadd](captures/flags.png)
 
 
-  Lors de l'analyse du trafic réseau capturé pendant un scan de ports, il est important de bien identifier les rôles des machines impliquées : la machine attaquante (qui effectue le scan) et la machine cible (qui reçoit le scan). Voici comment ces rôles sont définis et comment les noms des machines sont modifiés dans Wireshark :
+  Lors de l'analyse du trafic réseau capturé pendant un scan de ports, il est important de bien identifier les rôles des machines impliquées : la machine attaquant (qui effectue le scan) et la machine cible (qui reçoit le scan). Voici comment ces rôles sont définis et comment les noms des machines sont modifiés dans Wireshark :
 
 ### Définition des Adresses IP
 
-- **Adresse IP de la Machine Attaquante :** La machine qui effectue le scan SYN. Dans ce cas, l'adresse IP de la machine attaquante est `192.168.10.219`.
+- **Adresse IP de la Machine de l'attaquant :** La machine qui effectue le scan SYN. Dans ce cas, l'adresse IP de la machine attaquante est `192.168.10.219`.
 - **Adresse IP de la Machine Cible :** La machine qui est scannée. Dans ce cas, l'adresse IP de la machine cible est `192.168.10.123`.
 
 ### Modification des Noms dans Wireshark
@@ -195,9 +195,9 @@ Pour faciliter l'analyse dans Wireshark, les noms des machines ont été modifi�
      
     ![ipadd](captures/capture.png)
 
-    ## Analyse des Ports Ouverts dans wireshark
+## Analyse des Ports Ouverts dans wireshark
 
-   Pour  analyser spécifiquement les réponses SYN-ACK de la machine cible, un filtre a été appliqué pour isoler ces paquets. Voici les étapes détaillées :
+Pour  analyser spécifiquement les réponses SYN-ACK de la machine cible, un filtre a été appliqué pour isoler ces paquets. Voici les étapes détaillées :
    
 ### Filtrage des Réponses SYN-ACK
 

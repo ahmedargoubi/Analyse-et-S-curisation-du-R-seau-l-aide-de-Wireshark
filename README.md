@@ -25,13 +25,20 @@ Les étapes de préparation incluent :
 
 1. **Configuration de VMware Workstation :**
    - **Création d'un réseau virtuel "Host-Only" :** VMware a été configuré pour utiliser un réseau "Host-Only", permettant aux machines virtuelles de communiquer entre elles
+
+
    ![hostonly](captures/hostonlyconfiguration.png)
+
 
    - **Ajout des machines virtuelles :** Les machines virtuelles Kali Linux, Metasploitable 2, Windows XP et Ubuntu 22.04 ont été créées et configurées sur ce réseau "Host-Only". Chaque machine virtuelle a été configurée avec une adresse IP  attribuée par le serveur DHCP du réseau "Host-Only".
 
-2. **Vérification de la Connectivité :**
-   - **Test de la communication entre les machines :** l'outil `ping` a été utiliséss pour vérifier que les machines virtuelles pouvaient communiquer entre elles .
+1. **Vérification de la Connectivité :**
+
+ - **Test de la communication entre les machines :** l'outil `ping` a été utiliséss pour vérifier que les machines virtuelles pouvaient communiquer entre elles .
+
+
     ![ping](captures/ping.png)
+
 
 ## Démarrage de la Capture avec Wireshark
 
@@ -43,7 +50,11 @@ Lors du démarrage de wireshark, l'interface réseau correspondant au réseau "H
 ## Configurations des Filtres
 
 Lors de la première exécution de Wireshark, une grande quantité de trafic est observée, comprenant principalement des paquets de diffusion (broadcast) et des protocoles de gestion de réseau tels que ARP, CDP, LLDP et STP.
+ 
+ 
  ![brodcast](captures/brodcast.png)
+
+ 
 Pour se concentrer sur le trafic pertinent et réduire la surcharge d'informations, un filtre a été appliqué :
   !(eth.dst == ff:ff:ff:ff:ff:ff || arp || cdp || lldp || stp )
 
@@ -77,7 +88,6 @@ Pour analyser spécifiquement le trafic ICMP, tel que les requêtes et les répo
 
    - La capture a été démarrée. Les paquets ICMP Echo Request envoyés par Kali et les réponses ICMP Echo Reply de Metasploitable ont été visibles.
 
-**Note :** Après l'application de ce filtre, l'interface de capture peut apparaître vide. Cela est dû à l'exclusion de nombreux types de paquets. Cela peut indiquer que les seuls paquets capturés sont ceux qui ne sont pas filtrés, facilitant ainsi l'analyse des paquets réellement intéressants et réduisant le bruit de fond dans les données capturées.
 
 ### Filtrage par Adresses IP : 
 
@@ -91,7 +101,7 @@ Pour se concentrer sur des adresses IP spécifiques dans le réseau, un filtre p
 
 Ce filtre a permis de se concentrer uniquement sur le trafic entre ces deux adresses IP, facilitant ainsi l'analyse des communications spécifiques entre ces machines et éliminant les autres paquets qui ne sont pas pertinents pour cette analyse.
 
-Pour vérifier la connectivité réseau entre les machines, un test de ping a été effectué depuis la machine Ubuntu, avec l'adresse IP 192.168.10.128, vers la machine Windows, avec l'adresse IP 192.168.10.122. 
+Pour vérifier ce filtre , un test de ping a été effectué depuis la machine Ubuntu, avec l'adresse IP 192.168.10.128, vers la machine Windows, avec l'adresse IP 192.168.10.122. 
 
  ![ipadd](captures/ubnt.png)
  ![ipadd](captures/vide.png)
@@ -218,6 +228,7 @@ Pour assurer et visualiser les résultats, les étapes suivantes ont été suivi
 
 
 ![ipadd](captures/conversations.png)
+
 
 
 ### Résultat des Ports Ouverts

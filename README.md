@@ -60,6 +60,8 @@ Pour se concentrer sur le trafic pertinent et réduire la surcharge d'informatio
 
   
    ![nobrodcast](captures/nobrodcast.png)
+
+   
    Ce filtre exclut les paquets de diffusion et les protocoles de gestion réseau, permettant ainsi de se focaliser sur le trafic plus significatif pour l'analyse. 
 
    ### Filtrage par port :
@@ -222,9 +224,9 @@ Après avoir appliqué le filtre et capturé les paquets SYN-ACK, il est possibl
 
 Pour assurer et visualiser les résultats, les étapes suivantes ont été suivies :
 
-    Cliquer sur "Statistiques" dans la barre de menu de Wireshark.
-    Sélectionner "Conversations..." pour ouvrir la fenêtre des conversations réseau.
-    Dans la fenêtre des conversations, cliquer sur l'onglet "TCP".
+   - Cliquer sur "Statistiques" dans la barre de menu de Wireshark.
+   - Sélectionner "Conversations..." pour ouvrir la fenêtre des conversations réseau.
+   - Dans la fenêtre des conversations, cliquer sur l'onglet "TCP".
 
 
 ![ipadd](captures/conversations.png)

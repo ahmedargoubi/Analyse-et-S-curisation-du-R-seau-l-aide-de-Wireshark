@@ -244,7 +244,7 @@ Lorsqu'un hacker spécifie un port particulier à attaquer, tel que le port 21, 
 
 Le port a été identifié comme ouvert.
 
-![ipadd](captures/capftp.png)
+  ![ping](captures/capftp.png)
 
 Pour analyser ce scan dans Wireshark, le filtre suivant a été utilisé pour capturer les paquets liés à ce port :
 

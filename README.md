@@ -262,3 +262,34 @@ Wireshark affiche les paquets suivants :
  - Paquet RST : Envoyé par l'attaquant à la machine cible pour réinitialiser la connexion, ce qui est une indication que l'attaquant a terminé l'analyse et ne souhaite pas poursuivre la connexion.
 
 Ces trois paquets montrent que le port 21 est ouvert sur la machine cible
+
+## Capture du FTP 
+
+Le hacker décide de se connecter au serveur FTP de la machine cible. Pour ce faire, depuis Kali Linux, la commande suivante est exécutée dans le terminal :
+
+ ```bash
+     ftp 192.168.10.123
+
+ ```
+
+![ipadd](captures/capftp2.png)
+
+Lors de cette connexion, l'attaquant entre le nom d'utilisateur et le mot de passe pour accéder au serveur. La connexion est réussie et Wireshark capture l'intégralité de ce processus.
+
+Wireshark capture les échanges entre l'attaquant et le serveur FTP. 
+
+![ipadd](captures/capftp1.png)
+
+Parmi les informations capturées par wireshark :
+
+   - Version du serveur FTP 
+   - Nom d'utilisateur (USER) et mot de passe (PASS) 
+
+Pour afficher tous les noms d'utilisateur et mots de passe entrés par l'attaquant pour accéder au serveur FTP, le filtre suivant est utilisé dans Wireshark :
+
+ ```bash
+     ftp contains "PASS" || ftp contains "USER"
+
+ ```
+
+![ipadd](captures/capftp3.png)

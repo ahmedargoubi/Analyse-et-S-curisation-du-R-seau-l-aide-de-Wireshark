@@ -293,3 +293,6 @@ Pour afficher tous les noms d'utilisateur et mots de passe entrés par l'attaqua
  ```
 
 ![ipadd](captures/capftp3.png)
+
+
+Ce filtre permet de visualiser spécifiquement les paquets contenant les chaînes FTP "USER" et "PASS", révélant ainsi les identifiants utilisés par l'attaquant.

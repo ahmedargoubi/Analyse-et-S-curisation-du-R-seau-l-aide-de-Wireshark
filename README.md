@@ -18,7 +18,7 @@ Pour assurer une analyse efficace et sécurisée, un environnement de test isol�
 
 - **Kali Linux** : Fournit les outils nécessaires pour les tests de sécurité et l'analyse réseau.
 - **Metasploitable 2** : Une machine virtuelle vulnérable utilisée pour tester les techniques d'exploitation et les outils de sécurité.
-- **Windows XP** : Un système d'exploitation plus ancien souvent ciblé dans des scénarios de tests de sécurité pour évaluer les vulnérabilités et les exploits.
+- **Windows** : Un système d'exploitation plus ancien souvent ciblé dans des scénarios de tests de sécurité pour évaluer les vulnérabilités et les exploits.
 - **Ubuntu 22.04** : Un système d'exploitation moderne utilisé pour simuler un environnement de serveur ou de client dans les tests de réseau.
 
 Les étapes de préparation incluent :
@@ -56,7 +56,12 @@ Lors de la première exécution de Wireshark, une grande quantité de trafic est
 
  
 Pour se concentrer sur le trafic pertinent et réduire la surcharge d'informations, un filtre a été appliqué :
-  !(eth.dst == ff:ff:ff:ff:ff:ff || arp || cdp || lldp || stp )
+
+   ```bash
+
+   !(eth.dst == ff:ff:ff:ff:ff:ff || arp || cdp || lldp || stp )
+   ```
+
 
   
    ![nobrodcast](captures/nobrodcast.png)

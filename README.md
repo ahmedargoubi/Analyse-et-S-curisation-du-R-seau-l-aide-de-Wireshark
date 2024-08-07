@@ -323,10 +323,10 @@ Wireshark permet de réaliser cette identification par empreinte passive (passiv
 |                             | 1440            | Windows, Novell                                  |
 |                             | 1460            | BSD, Mac OS X, Linux, Solaris                    |
 | **Window Size**             | 1024–4096       | Nmap                                             |
-|                             | 65535           | BSD, Mac OS X                                    |
-|                             | 2920–5840       | Linux                                            |
-|                             | 16384           | Novell                                           |
-|                             | 4128            | Cisco IOS                                        |
-|                             | 24820           | Solaris                                          |
-|                             | Variable        | Windows                                          |
+|                              65535           | BSD, Mac OS X                                    |
+|                              2920–5840       | Linux                                            |
+|                              16384           | Novell                                           |
+|                              4128            | Cisco IOS                                        |
+|                              24820           | Solaris                                          |
+|                              Variable        | Windows                                          |
 | **SackOK**                  | Set             | Linux, Windows, OpenBSD                          |

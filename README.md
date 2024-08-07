@@ -307,3 +307,57 @@ Wireshark permet de réaliser cette identification par empreinte passive (passiv
 Le tableau suivant présente des valeurs courantes utilisées pour l'empreinte passive :
 
 ![ipadd](captures/ttl.png)
+
+
+### Déterminer le Système d'Exploitation a l'aide de Wireshark  
+
+Pour déterminer le système d'exploitation d'une machine cible, j'ai utilisé un exemple de communication Netcat entre deux machines : 
+
+une machine Windows avec l'adresse IP 192.168.10.122 et une machine Ubuntu avec l'adresse IP 192.168.10.128.
+
+Sur la machine Windows, écoutez sur le port 4444 avec la commande PowerShell :
+
+```bash
+     ncat -nlvp 4444
+
+ ```
+
+![ipadd](captures/wind.png)
+
+Sur la machine Ubuntu, connectez-vous à la machine Windows en utilisant la commande :
+  
+```bash
+     nc -nv 192.168.10.122 4444
+
+ ```
+
+
+![ipadd](captures/ubnt.png)
+
+Wireshark capture cette action et permet d'analyser les paquets échangés. En examinant les valeurs des en-têtes des premiers paquets SYN et SYN-ACK, nous pouvons déterminer les systèmes d'exploitation respectifs.
+
+   -Paquet 1 (SYN) envoyé de la machine Ubuntu vers la machine Windows :
+        Initial Time to Live : 64
+        Don’t Fragment Flag : Set
+        Max Segment Size : 1460 Bytes
+
+![ipadd](captures/ttl64.png)
+
+   -Paquet 2 (SYN-ACK) envoyé de la machine Windows vers la machine Ubuntu :
+        Initial Time to Live : 128
+        Don’t Fragment Flag : Set
+        Max Segment Size : 1440 Bytes
+
+![ipadd](captures/ttl128.png)
+
+En utilisant ces valeurs, nous pouvons identifier les systèmes d'exploitation :
+
+   - Ubuntu (Machine 192.168.10.128) :
+        TTL = 64, Don’t Fragment Flag = Set, MSS = 1460 Bytes
+        Correspond à : Linux
+
+   - Windows (Machine 192.168.10.122) :
+        TTL = 128, Don’t Fragment Flag = Set, MSS = 1440 Bytes
+        Correspond à : Windows
+
+Ainsi, en analysant seulement deux paquets dans Wireshark, nous avons pu déterminer le système d'exploitation de chaque machine en fonction de leur adresse IP respective.

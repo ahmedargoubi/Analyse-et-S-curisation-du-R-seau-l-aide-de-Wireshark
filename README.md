@@ -296,3 +296,18 @@ Pour afficher tous les noms d'utilisateur et mots de passe entrés par l'attaqua
 
 
 Ce filtre permet de visualiser spécifiquement les paquets contenant les chaînes FTP "USER" et "PASS", révélant ainsi les identifiants utilisés par l'attaquant.
+
+
+## Connaître le Système d'Exploitation Cible 
+
+La capacité de déterminer le système d'exploitation de la machine cible peut être essentielle pour une analyse approfondie de la sécurité.
+
+Wireshark permet de réaliser cette identification par empreinte passive (passive fingerprinting) en examinant des valeurs spécifiques dans les en-têtes de paquets réseau. Voici comment certaines valeurs courantes des en-têtes peuvent indiquer différents systèmes d'exploitation :
+
+   - Initial Time to Live (TTL) : 64 pour Nmap, BSD, Mac OS X, Linux; 128 pour Novell, Windows; 255 pour Cisco IOS, Palm OS, Solaris.
+   - Don’t Fragment Flag : Set pour BSD, Mac OS X, Linux, Novell, Windows, Palm OS, Solaris; Not set pour Nmap, Cisco IOS.
+   - Max Segment Size (MSS) : 0 pour Nmap; 1440 pour Windows, Novell; 1460 pour BSD, Mac OS X, Linux, Solaris.
+   - Window Size : 1024–4096 pour Nmap; 65535 pour BSD, Mac OS X; 2920–5840 pour Linux; 16384 pour Novell; 4128 pour Cisco IOS; 24820 pour Solaris; Variable pour Windows.
+   - SackOK : Set pour Linux, Windows, OpenBSD; Not set pour Nmap, FreeBSD, Mac OS X, Novell, Cisco IOS, Solaris.
+
+![ipadd](captures/TTL.jpg)

@@ -372,8 +372,6 @@ Ainsi, en analysant seulement deux paquets dans Wireshark, nous avons pu déterm
 
 Pour une analyse plus approfondie des actions effectuées par un attaquant, la fonctionnalité "Follow TCP Stream" de Wireshark est très utile. Voici comment cela fonctionne avec un exemple concret.
 
-![ipadd](captures/telnet.png)
-
     
 Sur Kali Linux, j'ouvre un terminal et me connecte à la machine Metasploitable2 avec l'adresse IP 192.168.10.123 en utilisant Telnet :
 
@@ -381,6 +379,8 @@ Sur Kali Linux, j'ouvre un terminal et me connecte à la machine Metasploitable2
     telnet 192..168.10.123
 
  ```
+
+![ipadd](captures/telnet.png)
 
  Une fois connecté, j'entre le nom d'utilisateur et le mot de passe.
 

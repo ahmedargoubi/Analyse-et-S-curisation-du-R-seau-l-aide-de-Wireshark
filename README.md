@@ -376,7 +376,7 @@ Pour une analyse plus approfondie des actions effectuées par un attaquant, la f
 Sur Kali Linux, j'ouvre un terminal et me connecte à la machine Metasploitable2 avec l'adresse IP 192.168.10.123 en utilisant Telnet :
 
 ```bash
-    telnet 192..168.10.123
+    telnet 192.168.10.123
 
  ```
 

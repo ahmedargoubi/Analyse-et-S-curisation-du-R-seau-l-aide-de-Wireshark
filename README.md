@@ -268,7 +268,7 @@ Wireshark affiche les paquets suivants :
 
 Ces trois paquets montrent que le port 21 est ouvert sur la machine cible
 
-## Capture du FTP 
+### Capture du FTP 
 
 Le hacker décide de se connecter au serveur FTP de la machine cible. Pour ce faire, depuis Kali Linux, la commande suivante est exécutée dans le terminal :
 

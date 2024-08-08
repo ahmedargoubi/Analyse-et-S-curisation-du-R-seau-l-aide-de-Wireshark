@@ -366,3 +366,34 @@ En utilisant ces valeurs, nous pouvons identifier les systèmes d'exploitation :
         Correspond à : Windows
 
 Ainsi, en analysant seulement deux paquets dans Wireshark, nous avons pu déterminer le système d'exploitation de chaque machine en fonction de leur adresse IP respective.
+
+
+## Follow TCP Stream
+
+Pour une analyse plus approfondie des actions effectuées par un attaquant, la fonctionnalité "Follow TCP Stream" de Wireshark est très utile. Voici comment cela fonctionne avec un exemple concret.
+
+![ipadd](captures/telnet.png)
+
+    
+Sur Kali Linux, j'ouvre un terminal et me connecte à la machine Metasploitable2 avec l'adresse IP 192.168.10.123 en utilisant Telnet :
+
+```bash
+    telnet 192..168.10.123
+
+ ```
+
+ Une fois connecté, j'entre le nom d'utilisateur et le mot de passe.
+
+Wireshark capture toutes les communications entre la machine Kali et la machine Metasploitable2 pendant la session Telnet.
+
+![ipadd](captures/telnet2.png)
+
+
+Pour voir toutes les commandes utilisées par l'attaquant, ainsi que le nom d'utilisateur et le mot de passe, je fais un clic droit sur l'un des paquets Telnet capturés, puis sélectionne Follow > TCP Stream.
+
+La fenêtre "Follow TCP Stream" affiche tout le texte échangé durant la session Telnet.
+
+![ipadd](captures/telnet3.png)
+Les commandes entrées par l'attaquant, ainsi que le nom d'utilisateur et le mot de passe utilisés pour se connecter à la machine Metasploitable2, sont visibles.
+
+Cette fonctionnalité permet de visualiser de manière claire et détaillée toutes les actions effectuées par l'attaquant sur la machine cible, facilitant ainsi l'analyse des comportements malveillants.

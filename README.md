@@ -410,10 +410,10 @@ intercepter tout le trafic. Ainsi chaque appareil pense communiquer directement 
 
 Dans mon scénario , j’ai une machine d'attaque Kali Linux  une machine ubuntu et une machine windows
 
+ | Machine            | IP Address       | MAC Address            |
+ |--------------------|------------------|------------------------|
+ | Ubuntu             | 192.168.10.128   | 00:0c:29:3a:e6:63      |         
+ | Windows            | 192.168.10.122   | 00:0c:29:79:dc:ec      |
+ | Kali (attacker)    | 192.168.10.219   | 00:0c:29:8a:b4:2a      |                                      
                                       
-                                      
-                                                          | Machine            | IP Address       | MAC Address            |
-                                                          |--------------------|------------------|------------------------|
-                                                          | Ubuntu             | 192.168.10.128   | 00:0c:29:3a:e6:63      |         
-                                                          | Windows            | 192.168.10.122   | 00:0c:29:79:dc:ec      |
-                                                          | Kali (attacker)    | 192.168.10.219   | 00:0c:29:8a:b4:2a      |
+                                                         

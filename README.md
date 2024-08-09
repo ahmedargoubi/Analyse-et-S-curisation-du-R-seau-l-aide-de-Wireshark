@@ -416,4 +416,4 @@ Dans mon scénario , j’ai une machine d'attaque Kali Linux  une machine ubuntu
  | Windows            | 192.168.10.122   | 00:0c:29:79:dc:ec      |
  | Kali (attacker)    | 192.168.10.219   | 00:0c:29:8a:b4:2a      |                                      
                                       
-                                                         
+![ipadd](captures/vec.png) ![ipadd](captures/ub.png) ![ipadd](captures/ipadd.png)                                                         

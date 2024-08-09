@@ -394,6 +394,7 @@ Pour voir toutes les commandes utilisées par l'attaquant, ainsi que le nom d'ut
 La fenêtre "Follow TCP Stream" affiche tout le texte échangé durant la session Telnet.
 
 ![ipadd](captures/telnet3.png)
+
 Les commandes entrées par l'attaquant, ainsi que le nom d'utilisateur et le mot de passe utilisés pour se connecter à la machine Metasploitable2, sont visibles.
 
 Cette fonctionnalité permet de visualiser de manière claire et détaillée toutes les actions effectuées par l'attaquant sur la machine cible, facilitant ainsi l'analyse des comportements malveillants.
@@ -416,4 +417,30 @@ Dans mon scénario , j’ai une machine d'attaque Kali Linux  une machine ubuntu
  | Windows            | 192.168.10.122   | 00:0c:29:79:dc:ec      |
  | Kali (attacker)    | 192.168.10.219   | 00:0c:29:8a:b4:2a      |                                      
                                       
-![ipadd](captures/vec.png) ![ipadd](captures/ub.png) ![ipadd](captures/ipadd.png)                                                         
+Avant laner l'attaque, nous observons une communication normale entre une machine Windows et une machine Ubuntu, chaque machine utilisant son adresse MAC légitime.
+
+![ipadd](captures/avant.png)
+
+
+Cependant, une machine Kali est introduite dans le réseau pour lancer une attaque de l'homme du milieu (Man-in-the-Middle) en utilisant Ettercap. Cette attaque repose sur la falsification des tables ARP des machines cibles, leur faisant croire qu'elles communiquent directement entre elles, alors qu'elles communiquent en réalité avec l'attaquant.                                                  
+
+
+![ipadd](captures/ettercap.png)
+
+
+Après l'attaque, en ouvrant Wireshark, nous remarquons la présence de trames indiquant que l'adresse MAC 00:0c:29:8a:b4:2a (celle de l'attaquant) est utilisée pour l'adresse IP 192.168.10.219 (adresse de l'attaquant), mais aussi pour la machine Ubuntu ayant l'adresse IP 192.168.10.128. Cette anomalie confirme la présence d'une attaque de type ARP Spoofing.
+
+
+![ipadd](captures/apres.png)
+
+
+our détecter cette attaque, nous développons un filtre dans Wireshark capable de signaler tous les paquets ARP provenant de l'adresse IP de la machine victime (Ubuntu) mais qui ne correspondent pas à son adresse MAC légitime. Le filtre utilisé est le suivant :
+
+
+```bash
+   ((arp.src.proto_ipv4 == 192.168.10.128) && (arp.opcode == 2)) && !(arp.src.hw_mac == 00:0c:29:3a:e6:63)
+
+ ```
+
+
+Ce filtre nous permet de détecter toute tentative de falsification de l'adresse MAC associée à l'adresse IP de la machine Ubuntu, et donc de repérer une attaque ARP Spoofing en cours, mais aussi de surveiller et de prévenir de futures tentatives d'attaques similaires.

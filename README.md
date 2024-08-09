@@ -1,5 +1,20 @@
 # Analyse et Sécurisation du Réseau a l'aide de Wireshark
 
+# Table des Matières
+
+1. [Introduction](#introduction)
+2. [Préparation de l'Environnement](#préparation-de-lenvironnement)
+3. [Démarrage de la Capture avec Wireshark](#démarrage-de-la-capture-avec-wireshark)
+4. [Configurations des Filtres](#configurations-des-filtres)
+5. [SYN Scan et Scan de Handshake Complet](#syn-scan-et-scan-de-handshake-complet)
+6. [Capture SYN Scan](#capture-syn-scan)
+7. [Analyse du Trafic FTP](#analyse-du-trafic-ftp)
+8. [Connaître le Système d'Exploitation Cible](#connaître-le-système-dexploitation-cible)
+9. [Follow TCP Stream](#follow-tcp-stream)
+10. [Détection et Analyse d'une Attaque ARP Spoofing à l'aide de Wireshark](#détection-et-analyse-dune-attaque-arp-spoofing-à-laide-de-wireshark)
+11. [Détection d'une attaque DoS à l'aide de Wireshark](#Détection_d'une_attaque_DoS_à_l'aide_de_Wireshark)
+12. [Coclusion](#conclusion)
+
 ## Introduction
 
 Dans un monde où la cybercriminalité et les menaces informatiques évoluent constamment, assurer la sécurité d'un réseau informatique est devenu une priorité cruciale pour les organisations de toutes tailles. Les réseaux modernes, souvent vastes et complexes, sont des cibles fréquentes pour diverses formes d'attaques, telles que les intrusions non autorisées, les attaques par déni de service (DoS) et les tentatives de vol de données. Dans ce contexte, la capacité à détecter et à répondre rapidement aux activités suspectes devient un impératif stratégique.
@@ -493,3 +508,6 @@ L'attaque peut également être visualisée dans Wireshark via les I/O Graphs ac
 ![ipadd](captures/graphe.png)
 
 
+## Conclusion 
+
+Wireshark est un outil incontournable dans le domaine de l'analyse et de la sécurité des réseaux. Sa capacité à capturer et à analyser le trafic en temps réel permet aux professionnels de la cybersécurité d'obtenir une visibilité approfondie sur l'activité réseau. Grâce à ses puissantes fonctionnalités de filtrage et d'inspection des paquets, Wireshark aide à identifier les anomalies, les tentatives d'intrusion, et d'autres comportements suspects, renforçant ainsi la défense des systèmes informatiques. En somme, Wireshark joue un rôle crucial dans la protection des infrastructures réseau en offrant une analyse détaillée et précise, essentielle pour prévenir et répondre aux menaces de sécurité.

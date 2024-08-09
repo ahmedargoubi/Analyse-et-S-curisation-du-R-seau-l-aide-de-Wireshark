@@ -445,3 +445,51 @@ Pour détecter cette attaque, nous développons un filtre dans Wireshark capable
 ![ipadd](captures/filtre.png)
 
 Ce filtre nous permet de détecter toute tentative de falsification de l'adresse MAC associée à l'adresse IP de la machine Ubuntu, et donc de repérer une attaque ARP Spoofing en cours, mais aussi de surveiller et de prévenir de futures tentatives d'attaques similaires.
+
+## Détection d'une attaque DoS à l'aide de Wireshark
+
+Une attaque de type Denial of Service (DoS) vise à rendre un service ou une machine indisponible en inondant la cible d'un trafic réseau excessif, rendant ainsi ses ressources saturées et incapables de répondre aux demandes légitimes. 
+
+![ipadd](captures/dos.png)
+
+Depuis une machine Kali, j'ai utilisé un script Python qui exécute une attaque DoS sur une machine cible avec l'adresse IP 192.168.10.128
+
+
+![ipadd](captures/script.png)
+
+ce script envoie un grand nombre de paquets SYN vers la machine cible, saturant ses ressources réseau et provoquant une attaque DoS.
+
+
+Lors de l'analyse de cette attaque avec Wireshark, nous observons un grand nombre de paquets envoyés à l'adresse IP 192.168.10.128 (la machine Ubuntu). Cela indique qu'une attaque DoS est en cours.
+
+
+![ipadd](captures/dosattack.png)
+
+
+Pour mieux comprendre cette attaque, deux filtres différents ont été appliqués dans Wireshark :
+
+```bash
+   tcp.flags.syn==1 && tcp.flags.ack==0
+
+ ```
+
+Ce filtre affiche uniquement les paquets SYN sans le drapeau ACK, ce qui correspond à des tentatives de connexion TCP non établies. L'utilisation de ce filtre montre un grand nombre de paquets affichés, indiquant que beaucoup de tentatives de connexion sont en cours, mais aucune n'est terminée.
+
+![ipadd](captures/filtre1.png)
+
+
+```bash
+  tcp.flags.syn==1 && tcp.flags.ack==1
+
+ ```
+
+Ce filtre affiche les paquets où à la fois les drapeaux SYN et ACK sont activés, ce qui signifie que la connexion TCP a été établie. L'application de ce filtre n'affiche aucun paquet, indiquant que la machine cible ne parvient pas à établir une connexion TCP en réponse aux paquets SYN reçus.
+
+![ipadd](captures/filtre2.png)
+
+
+L'attaque peut également être visualisée dans Wireshark via les I/O Graphs accessibles depuis le menu Statistics. Ce graphe montre une augmentation soudaine du nombre de paquets, ce qui correspond à l'inondation de paquets SYN envoyés lors de l'attaque DoS. Cette visualisation permet de confirmer l'attaque en montrant une nette augmentation du trafic réseau vers la machine cible.
+
+![ipadd](captures/graphe.png)
+
+

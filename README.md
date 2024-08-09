@@ -434,7 +434,7 @@ Après l'attaque, en ouvrant Wireshark, nous remarquons la présence de trames i
 ![ipadd](captures/apres.png)
 
 
-our détecter cette attaque, nous développons un filtre dans Wireshark capable de signaler tous les paquets ARP provenant de l'adresse IP de la machine victime (Ubuntu) mais qui ne correspondent pas à son adresse MAC légitime. Le filtre utilisé est le suivant :
+Pour détecter cette attaque, nous développons un filtre dans Wireshark capable de signaler tous les paquets ARP provenant de l'adresse IP de la machine victime (Ubuntu) mais qui ne correspondent pas à son adresse MAC légitime. Le filtre utilisé est le suivant :
 
 
 ```bash
